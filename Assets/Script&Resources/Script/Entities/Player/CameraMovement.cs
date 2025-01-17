@@ -10,23 +10,39 @@ public class CameraMovement : MonoBehaviour
 
     private void OnLook(InputValue value)
     {
-        Debug.Log("Mouse movement imput");
-        entradaRaton = value.Get<Vector2>();
+        if (Input.GetKey(KeyCode.Mouse1
+            ))
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Debug.Log("Mouse movement imput");
+            entradaRaton = value.Get<Vector2>();
+            rotateCharacter();
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
+        
 
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        
+    }
+
+    private void rotateCharacter()
+    {
         float mouseX = entradaRaton.x * sensitivity * Time.deltaTime;
         float mouseY = entradaRaton.y * sensitivity * Time.deltaTime;
 
-      
+
         valuex += mouseX;
         valuey -= mouseY;
 
