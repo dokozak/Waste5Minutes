@@ -1,50 +1,30 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+
 public class HandMovement : MonoBehaviour
 {
-    public float sensitivity = 10f;
     public GameObject hand;
 
-    private Vector2 entradaRaton;
-    private float valuex, valuey;
+    private const float minX = -45.3f, maxX = 65.92f;
+    private const float minY = -30.0f, maxY = 20.00f;
 
-    private void OnLook(InputValue value)
+    private void Update()
     {
-        if (!Input.GetKey(KeyCode.Mouse1))
-        {
-            
-            entradaRaton = value.Get<Vector2>();
-            rotateCharacter();
-        }
-            
-
-
-
+        float changeX = changeValues(Input.mousePosition.x, Screen.width, minX, maxX);
+        float changeY = changeValues(Input.mousePosition.y, Screen.height, minY, maxY);
+        hand.transform.localRotation = Quaternion.Euler(-changeX, 0, changeY);
     }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+
+    private float changeValues(float mousePosition,float screenMax, float minValue,float maxValue)
     {
+        float value = mousePosition / screenMax * 100;
+
+        minValue = (minValue < 0) ? -minValue : minValue;
+
+        return (minValue + maxValue) * value / 100 - minValue;
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
 
-    }
-
-    private void rotateCharacter()
-    {
-        float mouseX = entradaRaton.x * sensitivity * Time.deltaTime;
-        float mouseY = entradaRaton.y * sensitivity * Time.deltaTime;
-
-
-        valuex += mouseX;
-        valuey -= mouseY;
-
-        valuey = Mathf.Clamp(valuey, -90f, 90f);
-
-        hand.transform.localRotation = Quaternion.Euler(-valuex, -valuey, 0);
-    }
 }
