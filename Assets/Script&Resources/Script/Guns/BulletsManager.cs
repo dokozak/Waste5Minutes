@@ -41,7 +41,6 @@ public class BulletsManager : MonoBehaviour
     {
         if (bulletsIn == bulletsMax || bulletsHave == 0)
         {
-            StartCoroutine(rechargeAnimation());
             return;
         }
         //Add animation
