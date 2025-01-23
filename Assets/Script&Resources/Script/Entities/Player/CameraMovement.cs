@@ -1,15 +1,17 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
 
 public class CameraMovement : MonoBehaviour
 {
+    
     public float sensitivity = 10f;
-
     private Vector2 entradaRaton;
     private float valuex, valuey;
 
     private void OnLook(InputValue value)
     {
+
         if (Input.GetKey(KeyCode.Mouse1
             ))
         {
@@ -24,17 +26,6 @@ public class CameraMovement : MonoBehaviour
         }
         
 
-    }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     private void rotateCharacter()

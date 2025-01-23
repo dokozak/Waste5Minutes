@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -6,9 +7,12 @@ public class BulletsManager : MonoBehaviour
     public int bulletsIn;
     public int bulletsMax;
     public int bulletsHave;
+    public Animator animator;
+
+    private int timeRecharge = 2;
 
     private Shooting shooting;
-
+    
     private void Start()
     {
        shooting = GetComponent<Shooting>();
@@ -17,26 +21,39 @@ public class BulletsManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R)) 
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            
             OnReload();
+        } 
+           
+    }
+
+    private IEnumerator rechargeAnimation()
+    {
+        HandMovement.isEnable = false;
+        animator.Play("Recharge");
+        yield return new WaitForSeconds(timeRecharge);
+        HandMovement.isEnable = true;
     }
 
     private void OnReload()
     {
-        if(bulletsIn == bulletsMax || bulletsHave == 0)
+        if (bulletsIn == bulletsMax || bulletsHave == 0)
         {
+            StartCoroutine(rechargeAnimation());
             return;
         }
         //Add animation
         if(bulletsMax-bulletsIn <= bulletsHave)
         {
-            Debug.Log("1");
+            StartCoroutine(rechargeAnimation());
             bulletsHave -= bulletsMax - bulletsIn;
             bulletsIn = bulletsMax;
         }
         else
         {
-            Debug.Log("2");
+            StartCoroutine(rechargeAnimation());
             bulletsIn += bulletsHave;
             bulletsHave = 0;
         }
