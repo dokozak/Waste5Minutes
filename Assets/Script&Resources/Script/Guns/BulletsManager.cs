@@ -9,12 +9,13 @@ public class BulletsManager : MonoBehaviour
     public int bulletsHave;
     public Animator animator;
 
+    public static bool isReload = false;
     private int timeRecharge = 2;
-
     private Shooting shooting;
     
     private void Start()
     {
+       isReload = false;
        shooting = GetComponent<Shooting>();
        bulletsIn = bulletsMax;
     }
@@ -23,18 +24,18 @@ public class BulletsManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
-            
             OnReload();
-        } 
+        }
+
            
     }
 
     private IEnumerator rechargeAnimation()
     {
-        HandMovement.isEnable = false;
+        isReload = true;
         animator.Play("Recharge");
         yield return new WaitForSeconds(timeRecharge);
-        HandMovement.isEnable = true;
+        isReload = false;
     }
 
     private void OnReload()
@@ -43,7 +44,7 @@ public class BulletsManager : MonoBehaviour
         {
             return;
         }
-        //Add animation
+  
         if(bulletsMax-bulletsIn <= bulletsHave)
         {
             StartCoroutine(rechargeAnimation());

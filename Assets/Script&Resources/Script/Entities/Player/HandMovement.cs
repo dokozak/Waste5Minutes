@@ -6,15 +6,21 @@ public class HandMovement : MonoBehaviour
 {
     public GameObject hand;
 
-    private const float minX = -45.3f, maxX = 65.92f;
-    private const float minY = -30.0f, maxY = 20.00f;
-
-    public static bool isEnable = true;
+    private const float minX = 54.92f , maxX = -50.3f;
+    private const float minY = -32.0f, maxY = 32.00f;
 
     public Vector3 defaultPosition = new Vector3(0,0,0);
+
+
+    private void Start()
+    {
+
+    }
+
+
     private void Update()
     {
-        if (!isEnable)
+        if (BulletsManager.isReload)
         {
 
             hand.transform.localRotation = Quaternion.Euler(defaultPosition);
@@ -29,8 +35,9 @@ public class HandMovement : MonoBehaviour
     private float changeValues(float mousePosition,float screenMax, float minValue,float maxValue)
     {
         float value = mousePosition / screenMax * 100;
-
+        Debug.Log(value);
         minValue = (minValue < 0) ? -minValue : minValue;
+        maxValue = (maxValue < 0) ? -maxValue : maxValue;
 
         return (minValue + maxValue) * value / 100 - minValue;
 
