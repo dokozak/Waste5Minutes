@@ -11,12 +11,10 @@ public class BulletsManager : MonoBehaviour
 
     public static bool isReload = false;
     private int timeRecharge = 2;
-    private Shooting shooting;
     
     private void Start()
     {
        isReload = false;
-       shooting = GetComponent<Shooting>();
        bulletsIn = bulletsMax;
     }
 
@@ -58,6 +56,18 @@ public class BulletsManager : MonoBehaviour
             bulletsHave = 0;
         }
         
+    }
+
+    public bool isShooting()
+    {
+        if (bulletsIn > 0)
+        {
+            bulletsIn--;
+            return true;
+        }
+        OnReload();
+        return false;
+      
     }
 
 

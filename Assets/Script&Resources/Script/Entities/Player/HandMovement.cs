@@ -9,7 +9,7 @@ public class HandMovement : MonoBehaviour
     private const float minX = 54.92f , maxX = -50.3f;
     private const float minY = -32.0f, maxY = 32.00f;
 
-    public Vector3 defaultPosition = new Vector3(0,0,0);
+    private Vector3 defaultPosition = new Vector3(0,0,0);
 
 
     private void Start()

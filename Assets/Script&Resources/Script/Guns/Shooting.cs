@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
@@ -6,20 +7,27 @@ public class Shooting : MonoBehaviour
 
     public int recoil = 0;
     public float laserDistance = 10f;
-    public LayerMask layerMask;
+    public float couldDown = 0.3f;
     public bool isAutomatic = true;
-    private bool isShooting = false;
+
+    public LayerMask layerMask;
+
+    
+    private bool isShooting = true;
     private Camera mainCamera;
+    private BulletsManager bulletsManager;
+
   
 
     void Start()
     {
-            mainCamera = Camera.main;
+        mainCamera = Camera.main;
+        bulletsManager = GetComponent<BulletsManager>();
     }
 
     void Update()
     {
-        if (BulletsManager.isReload || isShooting)
+        if (BulletsManager.isReload)
             return;
         
         if(isAutomatic)
@@ -58,11 +66,19 @@ public class Shooting : MonoBehaviour
 
     public void shooting(GameObject gameObject)
     {
+        if (!isShooting || !bulletsManager.isShooting())
+            return;
+        StartCoroutine(waitTime());
+
         if (gameObject == null)
             return;
-    
 
-        
     }
 
+    private IEnumerator waitTime()
+    {
+        isShooting = false;
+        yield return new WaitForSeconds(couldDown);
+        isShooting = true;
+    }
 }
