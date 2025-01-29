@@ -10,7 +10,7 @@ public class BulletsManager : MonoBehaviour
     public Animator animator;
 
     public static bool isReload = false;
-    private int timeRecharge = 2;
+    private float timeRecharge = 1.75f;
     
     private void Start()
     {
@@ -46,18 +46,29 @@ public class BulletsManager : MonoBehaviour
         if(bulletsMax-bulletsIn <= bulletsHave)
         {
             StartCoroutine(rechargeAnimation());
-            bulletsHave -= bulletsMax - bulletsIn;
-            bulletsIn = bulletsMax;
+            StartCoroutine(RestBullets());
         }
         else
         {
             StartCoroutine(rechargeAnimation());
-            bulletsIn += bulletsHave;
-            bulletsHave = 0;
+            StartCoroutine(AllBullets());
         }
         
     }
 
+    private IEnumerator RestBullets()
+    {
+        yield return new WaitForSeconds(timeRecharge);
+        bulletsHave -= bulletsMax - bulletsIn;
+        bulletsIn = bulletsMax;
+    }
+
+    private IEnumerator AllBullets()
+    {
+        yield return new WaitForSeconds(timeRecharge);
+        bulletsIn += bulletsHave;
+        bulletsHave = 0;
+    }
     public bool isShooting()
     {
         if (bulletsIn > 0)

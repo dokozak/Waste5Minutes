@@ -1,23 +1,26 @@
+using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
+[RequireComponent(typeof(HidenArms))]
 public class Inventory : MonoBehaviour
 {
-    
-    public GameObject[] inventoryArms;
-    public Vector3 positionOfArms;
-    
-    
+    private GameObject firstWeapon;
+    private GameObject secondWeapon;
 
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Start()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    //private GameObject firstWeapon()
+    //{
+    //    switch(Random.Range(0, 101)){
+    //        case < 30:
+    //            secondWeapon[]
+    //            break;
+    //    }
+    //}
+
+
 }
