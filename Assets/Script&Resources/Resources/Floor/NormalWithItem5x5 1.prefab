@@ -3998,7 +3998,7 @@ GameObject:
   - component: {fileID: 8169362256326075355}
   - component: {fileID: 54977363762170488}
   m_Layer: 0
-  m_Name: DefaultFloor5x5
+  m_Name: NormalWithItem5x5 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
