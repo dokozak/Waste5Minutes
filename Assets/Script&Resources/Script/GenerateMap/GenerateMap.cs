@@ -1,12 +1,18 @@
+using System;
 using System.Collections;
+using Unity.AI.Navigation;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class GenerateMap : MonoBehaviour
 {
     public GameObject[] plataform;
 
+    public GameObject father;
+
     private ArrayList listOfPlataform;
+    private NavMeshSurface fatherNavMesh;
 
     private int pointOfTheNextLevel;
 
@@ -33,6 +39,7 @@ public class GenerateMap : MonoBehaviour
     private float waitTime = 0.1f;
     private void Start()
     {
+        fatherNavMesh = father.GetComponent<NavMeshSurface>();
         isContinue = false;
         listOfPlataform = new ArrayList();
         StartCoroutine(createFirstMap(Vector3.zero, new Vector3(5, 0, 0)));
@@ -47,21 +54,22 @@ public class GenerateMap : MonoBehaviour
     IEnumerator createFirstMap(Vector3 firstPosition, Vector3 movement)
     {
         yield return null;
-        listOfPlataform.Add(Instantiate(plataform[plataformNormal1x1], firstPosition, Quaternion.identity));
+        listOfPlataform.Add(Instantiate(plataform[plataformNormal1x1], firstPosition, Quaternion.identity, father.transform));
         for (int i = 0; i < 4; i++)
         {
             firstPosition += movement;
-            listOfPlataform.Add(Instantiate(getRandom1xXPlataform(),firstPosition, Quaternion.identity));
+            listOfPlataform.Add(Instantiate(getRandom1xXPlataform(),firstPosition, Quaternion.identity, father.transform));
         }
         firstPosition += movement * 4;
-        GameObject lastPlataform = Instantiate(getRandom5x5Plataform(), firstPosition, Quaternion.identity);
+        GameObject lastPlataform = Instantiate(getRandom5x5Plataform(), firstPosition, Quaternion.identity, father.transform);
         StartCoroutine(continueMaps(lastPlataform, firstPosition, movement));
     }
 
     //REcojer un objeto de tipo suelo y despues comprobar si ese suelo ha sido tocado,
     IEnumerator continueMaps(GameObject map, Vector3 midPosition, Vector3 movement)
     {
-        
+        yield return new WaitForSeconds(waitTime * 5);
+        StartCoroutine(createMeshData());
         while (!isContinue) yield return new WaitForSeconds(waitTime);
         if (map.GetComponent<MapCollision>().isPlayerCollision) 
         {
@@ -80,6 +88,7 @@ public class GenerateMap : MonoBehaviour
             {
                 movement.z *= -1;
             }
+           
             StartCoroutine(createMap(midPosition + movement * 3, movement));
             yield return new WaitForSeconds(waitTime);
             map.GetComponent<BigPieceScript>().CheckWalls();
@@ -93,6 +102,15 @@ public class GenerateMap : MonoBehaviour
 
     }
 
+    IEnumerator createMeshData()
+    {
+
+            fatherNavMesh.navMeshData = null;
+            fatherNavMesh.BuildNavMesh();
+            yield return null;
+        
+    }
+
     IEnumerator createMap(Vector3 position, Vector3 movement)
     {
         yield return null;
@@ -101,10 +119,10 @@ public class GenerateMap : MonoBehaviour
         {
             position += movement;
 
-            listOfPlataform.Add(Instantiate(getRandom1xXPlataform(), position, Quaternion.identity));
+            listOfPlataform.Add(Instantiate(getRandom1xXPlataform(), position, Quaternion.identity, father.transform));
         }
 
-        int randomNumber = Random.Range(0, 3);
+        int randomNumber = UnityEngine.Random.Range(0, 3);
 
 
         if (randomNumber == 0)
@@ -128,13 +146,17 @@ public class GenerateMap : MonoBehaviour
         for (int i = 0; i < 4; i++)
         {
             position += movement;
-            listOfPlataform.Add(Instantiate(getRandom1xXPlataform(), position, Quaternion.identity));
+            listOfPlataform.Add(Instantiate(getRandom1xXPlataform(), position, Quaternion.identity, father.transform));
         }
 
         position += movement * 4;
-       
-            GameObject lastPlataform = Instantiate(getRandom5x5Plataform(), position, Quaternion.identity);
+        if (!Physics.Raycast(position, movement))
+        {
+            GameObject lastPlataform = Instantiate(getRandom5x5Plataform(), position, Quaternion.identity, father.transform);
             StartCoroutine(continueMaps(lastPlataform, position, movement));
+        }
+            Debug.DrawRay(position, movement, Color.white, 99f);
+     
         
 
     }
@@ -153,7 +175,7 @@ public class GenerateMap : MonoBehaviour
 
     private GameObject getRandom1xXPlataform()
     {
-        switch (Random.Range(0,101))
+        switch (UnityEngine.Random.Range(0,101))
         {
             case < probabilityOfNormal1x1:
                 return plataform[plataformNormal1x1];
@@ -172,7 +194,7 @@ public class GenerateMap : MonoBehaviour
 
     private GameObject getRandom5x5Plataform()
     {
-        switch (Random.Range(0, 101))
+        switch (UnityEngine.Random.Range(0, 101))
         {
             case < probabilityOfNormal5x5:
                 return plataform[plataformNormal5x5];
