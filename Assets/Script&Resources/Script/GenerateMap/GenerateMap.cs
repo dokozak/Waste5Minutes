@@ -70,6 +70,7 @@ public class GenerateMap : MonoBehaviour
     {
         yield return new WaitForSeconds(waitTime * 5);
         StartCoroutine(createMeshData());
+        AddLight.Add();
         while (!isContinue) yield return new WaitForSeconds(waitTime);
         if (map.GetComponent<MapCollision>().isPlayerCollision) 
         {
