@@ -35,10 +35,9 @@ public class CameraMovement : MonoBehaviour
 
 
         valuex += mouseX;
-        valuey -= mouseY;
 
-        valuey = Mathf.Clamp(valuey, -90f, 90f);
+     
 
-        transform.localRotation = Quaternion.Euler(valuey, valuex, 0);
+        transform.localRotation = Quaternion.Euler(0, valuex, 0);
     }
 }

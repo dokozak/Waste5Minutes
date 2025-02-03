@@ -2,15 +2,16 @@ using UnityEngine;
 
 public class MapCollision : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public bool isPlayerCollision = false;
+
+    private void OnCollisionEnter(Collision collision)
     {
-        
+        if (collision.gameObject.CompareTag("Player") && !isPlayerCollision)
+        {
+            isPlayerCollision = true;
+            GenerateMap.isContinue = true;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
+
