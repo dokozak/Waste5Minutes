@@ -12,6 +12,7 @@ public class Inventory : MonoBehaviour
     private HidenArms arms;
 
     public float animationTime;
+    public Transform fatherOfGun;
 
     private const int revolverProbability = 50;
     private const int desertEagleProbability = 75;
@@ -67,51 +68,53 @@ public class Inventory : MonoBehaviour
 
         switch (GunsOnFloorCollisions.weaponOnFloor.GetComponent<GunInformation>().typeOfGun)
         {
-            case HidenArms._revolver:
-                secondWeapon = Instantiate(arms.inventoryArms[HidenArms._revolver], arms.positionsOfTheArms[HidenArms._revolver], Quaternion.identity);
-                break;
-            case HidenArms._desertEagle:
-                secondWeapon = Instantiate(arms.inventoryArms[HidenArms._desertEagle], arms.positionsOfTheArms[HidenArms._desertEagle], Quaternion.identity);
-                break;
-            case HidenArms._subMachineGun:
-                firstWeapon = Instantiate(arms.inventoryArms[HidenArms._subMachineGun], arms.positionsOfTheArms[HidenArms._subMachineGun], Quaternion.identity);
-                break;
-            case HidenArms._franc:
-                firstWeapon = Instantiate(arms.inventoryArms[HidenArms._franc], arms.positionsOfTheArms[HidenArms._franc], Quaternion.identity);
-                break;
-            case HidenArms._rifle:
-                firstWeapon = Instantiate(arms.inventoryArms[HidenArms._rifle], arms.positionsOfTheArms[HidenArms._rifle], Quaternion.identity);
-                break;
-            case HidenArms._knife:
-                secondWeapon = Instantiate(arms.inventoryArms[HidenArms._knife], arms.positionsOfTheArms[HidenArms._knife], Quaternion.identity);
-                break;
+            //case HidenArms._revolver:
+            //    secondWeapon = Instantiate(arms.inventoryArms[HidenArms._revolver], arms.positionsOfTheArms[HidenArms._revolver], Quaternion.identity);
+            //    break;
+            //case HidenArms._desertEagle:
+            //    secondWeapon = Instantiate(arms.inventoryArms[HidenArms._desertEagle], arms.positionsOfTheArms[HidenArms._desertEagle], Quaternion.identity);
+            //    break;
+            //case HidenArms._subMachineGun:
+            //    firstWeapon = Instantiate(arms.inventoryArms[HidenArms._subMachineGun], arms.positionsOfTheArms[HidenArms._subMachineGun], Quaternion.identity);
+            //    break;
+            //case HidenArms._franc:
+            //    firstWeapon = Instantiate(arms.inventoryArms[HidenArms._franc], arms.positionsOfTheArms[HidenArms._franc], Quaternion.identity);
+            //    break;
+            //case HidenArms._rifle:
+            //    firstWeapon = Instantiate(arms.inventoryArms[HidenArms._rifle], arms.positionsOfTheArms[HidenArms._rifle], Quaternion.identity);
+            //    break;
+            //case HidenArms._knife:
+            //    secondWeapon = Instantiate(arms.inventoryArms[HidenArms._knife], arms.positionsOfTheArms[HidenArms._knife], Quaternion.identity);
+            //    break;
         }
     }
 
     private void getFirstWeapon()
     {
-        switch (Random.Range(0, 101))
-        {
-            case < revolverProbability:
-                secondWeapon = Instantiate(arms.inventoryArms[HidenArms._revolver], arms.positionsOfTheArms[HidenArms._revolver], Quaternion.identity);
-                break;
-            case < desertEagleProbability:
-                secondWeapon = Instantiate(arms.inventoryArms[HidenArms._desertEagle], arms.positionsOfTheArms[HidenArms._desertEagle], Quaternion.identity);
-                break;
-            case < subMachineGunProbability:
-                firstWeapon = Instantiate(arms.inventoryArms[HidenArms._subMachineGun], arms.positionsOfTheArms[HidenArms._subMachineGun], Quaternion.identity);
-                break;
-            case < francProbability:
-                firstWeapon = Instantiate(arms.inventoryArms[HidenArms._franc], arms.positionsOfTheArms[HidenArms._franc], Quaternion.identity);
-                break;
-            case < rifleProbability:
-                firstWeapon = Instantiate(arms.inventoryArms[HidenArms._rifle], arms.positionsOfTheArms[HidenArms._rifle], Quaternion.identity);
-                break;
-            case knifeProbability:
-                secondWeapon = Instantiate(arms.inventoryArms[HidenArms._knife], arms.positionsOfTheArms[HidenArms._knife], Quaternion.identity);
-                break;
+        Instantiate(arms.inventoryArms[HidenArms._revolver], Vector3.zero, Quaternion.identity, arms.positionsOfTheArms[HidenArms._revolver]);
+        return;
+        //switch (Random.Range(0, 101))
+        //{
+        //    case < revolverProbability:
+        //        secondWeapon = Instantiate(arms.inventoryArms[HidenArms._revolver], arms.positionsOfTheArms[HidenArms._revolver], Quaternion.identity);
+        //        break;
+        //    case < desertEagleProbability:
+        //        secondWeapon = Instantiate(arms.inventoryArms[HidenArms._desertEagle], arms.positionsOfTheArms[HidenArms._desertEagle], Quaternion.identity);
+        //        break;
+        //    case < subMachineGunProbability:
+        //        firstWeapon = Instantiate(arms.inventoryArms[HidenArms._subMachineGun], arms.positionsOfTheArms[HidenArms._subMachineGun], Quaternion.identity);
+        //        break;
+        //    case < francProbability:
+        //        firstWeapon = Instantiate(arms.inventoryArms[HidenArms._franc], arms.positionsOfTheArms[HidenArms._franc], Quaternion.identity);
+        //        break;
+        //    case < rifleProbability:
+        //        firstWeapon = Instantiate(arms.inventoryArms[HidenArms._rifle], arms.positionsOfTheArms[HidenArms._rifle], Quaternion.identity);
+        //        break;
+        //    case knifeProbability:
+        //        secondWeapon = Instantiate(arms.inventoryArms[HidenArms._knife], arms.positionsOfTheArms[HidenArms._knife], Quaternion.identity);
+        //        break;
 
-        }
+        //}
        
     }
 

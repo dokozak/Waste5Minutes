@@ -61,7 +61,7 @@ public class GenerateMap : MonoBehaviour
             listOfPlataform.Add(Instantiate(getRandom1xXPlataform(),firstPosition, Quaternion.identity, father.transform));
         }
         firstPosition += movement * 4;
-        GameObject lastPlataform = Instantiate(getRandom5x5Plataform(), firstPosition, Quaternion.identity, father.transform);
+        GameObject lastPlataform = Instantiate(plataform[plataformNormal5x5], firstPosition, Quaternion.identity, father.transform);
         StartCoroutine(continueMaps(lastPlataform, firstPosition, movement));
     }
 
