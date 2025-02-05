@@ -14,10 +14,10 @@ public class GenerateItem : MonoBehaviour
     private const int _knife = 5;
     private const int _desertEagle =1;
 
-    private const int revolverProbability = 50;
-    private const int desertEagleProbability = 75;
-    private const int subMachineGunProbability = 89;
-    private const int francProbability = 94;
+    private const int revolverProbability = 10;
+    private const int desertEagleProbability = 35;
+    private const int subMachineGunProbability = 50;
+    private const int francProbability = 75;
     private const int rifleProbability = 99;
     private const int knifeProbability = 100;
 

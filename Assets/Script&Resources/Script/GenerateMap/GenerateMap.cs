@@ -26,9 +26,9 @@ public class GenerateMap : MonoBehaviour
 
     private const int plataformFinal = 7;
 
-    private const int probabilityOfNormal1x1 = 30;
+    private const int probabilityOfNormal1x1 = 39;
     private const int probabilityOfWithItem1x1 = 40;
-    private const int probabilityOfWithEnemies1x1 = 90;
+    private const int probabilityOfWithEnemies1x1 = 95;
     private const int probabilityOfWithItemAndEnemies1x3 = 101;
     private const int probabilityOfNormal5x5 = 50;
     private const int probabilityOfNormalWithItem5x5 = 70;

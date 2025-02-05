@@ -9,7 +9,7 @@ public class Shooting : MonoBehaviour
     public float laserDistance = 10f;
     public float couldDown = 0.3f;
     public bool isAutomatic = true;
-
+    public int damage = 1;
     public LayerMask layerMask;
 
     
@@ -73,6 +73,11 @@ public class Shooting : MonoBehaviour
         if (gameObject == null)
             return;
 
+        if (gameObject.CompareTag("Enemy"))
+        {
+            gameObject.GetComponent<LifeEnemies>().lifeEnemies -= damage;
+
+        }
     }
 
     private IEnumerator waitTime()

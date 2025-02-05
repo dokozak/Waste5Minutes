@@ -980,6 +980,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animationTime: 0
   fatherOfGun: {fileID: 1831965661}
+  isFirstGun: 1
 --- !u!114 &914841087
 MonoBehaviour:
   m_ObjectHideFlags: 0

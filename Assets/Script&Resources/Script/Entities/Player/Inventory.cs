@@ -22,6 +22,8 @@ public class Inventory : MonoBehaviour
     private const int rifleProbability = 99;
     private const int knifeProbability = 100;
 
+    public bool isFirstGun = true;
+
     public static bool isChangeArms = false;
 
     private void Start()
@@ -33,61 +35,28 @@ public class Inventory : MonoBehaviour
 
     private void Update()
     {
-        if (GunsOnFloorCollisions.weaponOnFloor == null || BulletsManager.isReload || isChangeArms)
-            return;
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKey(KeyCode.Alpha1))
         {
-            StartCoroutine(ChangeArms());
-
+            if(firstWeapon != null) 
+            isFirstGun = true;
         }
-    }
-
-    private IEnumerator ChangeArms()
-    {
-        //Add animation
-
-        yield return new WaitForSeconds(animationTime);
-
-        activateArms();
-        isChangeArms = true;
-    }
-
-
-    private void activateArms()
-    {
-        if (GunsOnFloorCollisions.weaponOnFloor.GetComponent<GunInformation>().isFirstInventory)
+        if (Input.GetKey(KeyCode.Alpha2))
         {
-            firstWeapon.transform.position = GunsOnFloorCollisions.weaponOnFloor.gameObject.transform.position;
-            firstWeapon.AddComponent<GunsOnFloorCollisions>();
+            if (secondWeapon != null)
+                isFirstGun = false;
+        }
+
+        if (isFirstGun) {
+            firstWeapon.SetActive(true);
+            if (secondWeapon != null)
+                secondWeapon.SetActive(false);
         }
         else
         {
-            secondWeapon.transform.position = GunsOnFloorCollisions.weaponOnFloor.gameObject.transform.position;
-            secondWeapon.AddComponent<GunsOnFloorCollisions>();
-        }
-
-        switch (GunsOnFloorCollisions.weaponOnFloor.GetComponent<GunInformation>().typeOfGun)
-        {
-
-            //case HidenArms._revolver:
-            //    secondWeapon = Instantiate(arms.inventoryArms[HidenArms._revolver], arms.positionsOfTheArms[HidenArms._revolver], Quaternion.identity);
-            //    break;
-            //case HidenArms._desertEagle:
-            //    secondWeapon = Instantiate(arms.inventoryArms[HidenArms._desertEagle], arms.positionsOfTheArms[HidenArms._desertEagle], Quaternion.identity);
-            //    break;
-            //case HidenArms._subMachineGun:
-            //    firstWeapon = Instantiate(arms.inventoryArms[HidenArms._subMachineGun], arms.positionsOfTheArms[HidenArms._subMachineGun], Quaternion.identity);
-            //    break;
-            //case HidenArms._franc:
-            //    firstWeapon = Instantiate(arms.inventoryArms[HidenArms._franc], arms.positionsOfTheArms[HidenArms._franc], Quaternion.identity);
-            //    break;
-            //case HidenArms._rifle:
-            //    firstWeapon = Instantiate(arms.inventoryArms[HidenArms._rifle], arms.positionsOfTheArms[HidenArms._rifle], Quaternion.identity);
-            //    break;
-            //case HidenArms._knife:
-            //    secondWeapon = Instantiate(arms.inventoryArms[HidenArms._knife], arms.positionsOfTheArms[HidenArms._knife], Quaternion.identity);
-            //    break;
+            if(firstWeapon != null)
+            firstWeapon.SetActive(false);
+            secondWeapon.SetActive(true);
         }
     }
 
@@ -97,92 +66,87 @@ public class Inventory : MonoBehaviour
         {
             case < revolverProbability:
                 secondWeapon = Instantiate(arms.inventoryArms[HidenArms._revolver], arms.positionsOfTheArms[HidenArms._revolver].position, arms.positionsOfTheArms[HidenArms._revolver].localRotation, fatherOfGun);
+                isFirstGun = false;
                 break;
             case < desertEagleProbability:
                 secondWeapon = Instantiate(arms.inventoryArms[HidenArms._desertEagle], arms.positionsOfTheArms[HidenArms._desertEagle].position, arms.positionsOfTheArms[HidenArms._desertEagle].localRotation, fatherOfGun);
+                isFirstGun = false;
                 break;
             case < subMachineGunProbability:
                 firstWeapon = Instantiate(arms.inventoryArms[HidenArms._subMachineGun], arms.positionsOfTheArms[HidenArms._subMachineGun].position, arms.positionsOfTheArms[HidenArms._subMachineGun].localRotation, fatherOfGun);
+                isFirstGun = true;
                 break;
             case < francProbability:
                 firstWeapon = Instantiate(arms.inventoryArms[HidenArms._franc], arms.positionsOfTheArms[HidenArms._franc].position, arms.positionsOfTheArms[HidenArms._franc].localRotation, fatherOfGun);
+                isFirstGun = true;
                 break;
             case < rifleProbability:
                 firstWeapon = Instantiate(arms.inventoryArms[HidenArms._rifle], arms.positionsOfTheArms[HidenArms._rifle].position, arms.positionsOfTheArms[HidenArms._rifle].localRotation, fatherOfGun);
+                isFirstGun = true;
                 break;
             case knifeProbability:
                 secondWeapon = Instantiate(arms.inventoryArms[HidenArms._knife], arms.positionsOfTheArms[HidenArms._knife].position, arms.positionsOfTheArms[HidenArms._knife].localRotation, fatherOfGun);
+                isFirstGun = true;
                 break;
 
         }
 
     }
 
-    public void changeFirstGun(Transform positionOnFloor)
+    public void changeFirstGun(Transform positionOnFloor, GameObject gun)
     {
-        GameObject deleteFirstGun = firstWeapon;
-        GameObject deleteSecondGun = transform.GetChild(0).gameObject;
+        GameObject previousGun = firstWeapon;
+        GunInformation gunInfo = gun.GetComponent<GunInformation>();
 
-        // Guardar la información del arma antes de destruirla
-        GunInformation gunInfo = deleteSecondGun.GetComponent<GunInformation>();
-
-        if (gunInfo == null)
-        {
-            UnityEngine.Debug.LogError("GunInformation no encontrado en el arma.");
-            return;
-        }
-
-        // Instanciar la nueva arma antes de destruir la anterior
+        
         firstWeapon = Instantiate(
-            deleteSecondGun,
+            gun,
             arms.positionsOfTheArms[gunInfo.typeOfGun].position,
-            arms.positionsOfTheArms[gunInfo.typeOfGun].rotation,
+            transform.localRotation,
             fatherOfGun
         );
 
-        // Si hay un arma anterior, soltarla en el suelo
-        if (deleteFirstGun != null)
+
+        if (previousGun != null)
         {
-            Instantiate(deleteFirstGun, positionOnFloor.position, Quaternion.Euler(0, 0, 90), positionOnFloor);
-            Destroy(deleteFirstGun, 2f); // Se destruye después de 2 segundos para evitar que desaparezca inmediatamente
+            previousGun.SetActive(true);
+            GameObject droppedGun = Instantiate(previousGun,positionOnFloor.position, Quaternion.Euler(90, 0, 0),positionOnFloor);
+
         }
 
-        // Destruir la anterior arma equipada después de asegurarse de que la nueva está creada
-        Destroy(deleteSecondGun);
+        deleteObjects(previousGun, gun);
     }
 
-    public void changeSecondGun(Transform positionOnFloor)
+    public void changeSecondsGun(Transform positionOnFloor, GameObject gun)
     {
-        GameObject deleteFirstGun = secondWeapon;
-        GameObject deleteSecondGun = transform.GetChild(0).gameObject;
+        GameObject previousGun = secondWeapon; 
+        GunInformation gunInfo = gun.GetComponent<GunInformation>();
 
-        // Guardar la información del arma antes de destruirla
-        GunInformation gunInfo = transform.GetChild(0).GetComponent<GunInformation>();
-
-        if (gunInfo == null)
-        {
-            UnityEngine.Debug.LogError("GunInformation no encontrado en el arma.");
-            return;
-        }
-
-        // Instanciar la nueva arma antes de destruir la anterior
+        
         secondWeapon = Instantiate(
-            deleteSecondGun,
+            gun,
             arms.positionsOfTheArms[gunInfo.typeOfGun].position,
-            arms.positionsOfTheArms[gunInfo.typeOfGun].rotation,
+            transform.localRotation,
             fatherOfGun
         );
 
-        // Si hay un arma anterior, soltarla en el suelo
-        if (deleteFirstGun != null)
+     
+        if (previousGun != null)
         {
-            Instantiate(deleteFirstGun, positionOnFloor.position, Quaternion.Euler(0, 0, 90), positionOnFloor);
-            Destroy(deleteFirstGun, 2f); // Se destruye después de 2 segundos para evitar que desaparezca inmediatamente
+            previousGun.SetActive(true);
+            GameObject droppedGun = Instantiate(previousGun,positionOnFloor.position,Quaternion.Euler(90, 0, 0),positionOnFloor); 
+           
         }
 
-        // Destruir la anterior arma equipada después de asegurarse de que la nueva está creada
-        Destroy(deleteSecondGun);
+        deleteObjects(previousGun, gun);
+    }
 
+    private void deleteObjects(GameObject gm1, GameObject gm2)
+    {
+        if(gm1 != null) 
+            Destroy(gm1);
+        if(gm2 != null)
+            Destroy(gm2);
     }
 
 
