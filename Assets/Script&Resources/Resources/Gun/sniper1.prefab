@@ -72,44 +72,29 @@ PrefabInstance:
       propertyPath: m_Name
       value: sniper1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 60d91f925d8c1e442bb6596dfb94ffff, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 60d91f925d8c1e442bb6596dfb94ffff, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 487096498792695854}
+      addedObject: {fileID: -8089904013941283590}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 60d91f925d8c1e442bb6596dfb94ffff, type: 3}
       insertIndex: -1
-      addedObject: {fileID: -8089904013941283590}
+      addedObject: {fileID: -4407208352111488922}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 60d91f925d8c1e442bb6596dfb94ffff, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2596786968062653680}
   m_SourcePrefab: {fileID: 100100000, guid: 60d91f925d8c1e442bb6596dfb94ffff, type: 3}
 --- !u!1 &938700995397199055 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 60d91f925d8c1e442bb6596dfb94ffff, type: 3}
   m_PrefabInstance: {fileID: 128218745599007134}
   m_PrefabAsset: {fileID: 0}
---- !u!195 &487096498792695854
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 938700995397199055}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.01
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 0.01
-  m_BaseOffset: 1.276069
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!114 &-8089904013941283590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,3 +110,38 @@ MonoBehaviour:
   typeOfGun: 3
   nameOfGun: 
   isFirstInventory: 1
+--- !u!114 &-4407208352111488922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 938700995397199055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b1508598561fbf46bb49da90c5cae5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletsIn: 5
+  bulletsMax: 5
+  bulletsHave: 20
+--- !u!114 &2596786968062653680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 938700995397199055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8416e59bbe510634ba27780ed5ee07bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  recoil: 0
+  laserDistance: 10
+  couldDown: 0.3
+  isAutomatic: 1
+  damage: 1
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0

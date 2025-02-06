@@ -19,8 +19,8 @@ public class Inventory : MonoBehaviour
     private const int desertEagleProbability = 75;
     private const int subMachineGunProbability = 89;
     private const int francProbability = 94;
-    private const int rifleProbability = 99;
-    private const int knifeProbability = 100;
+    private const int rifleProbability = 101;
+    private const int knifeProbability = 102;
 
     public bool isFirstGun = true;
 
@@ -60,6 +60,17 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    public GameObject getActuallyWeapon()
+    {
+        if (isFirstGun)
+        {
+            return firstWeapon;
+        }
+        else
+        {
+            return secondWeapon;
+        }
+    }
     private void getFirstWeapon()
     {
         switch (Random.Range(0, 101))

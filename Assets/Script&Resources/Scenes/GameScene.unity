@@ -737,7 +737,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: XX/XX
+  m_text: XX/XX XX
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -764,8 +764,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1129,6 +1129,31 @@ MonoBehaviour:
   - {fileID: 1444571753}
   - {fileID: 781982317}
   - {fileID: 736184852}
+--- !u!114 &914841088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 914841071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d68ea4dd42ab46419239ddc2ffb3161, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &914841089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 914841071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd25620af2577f741adccf160a535ab7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  information: {fileID: 697963823}
 --- !u!1 &967692118
 GameObject:
   m_ObjectHideFlags: 0
@@ -2104,6 +2129,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7a5123ffade9faa43a9689d868f1e6fe, type: 3}
       insertIndex: -1
       addedObject: {fileID: 914841086}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7a5123ffade9faa43a9689d868f1e6fe, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 914841088}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7a5123ffade9faa43a9689d868f1e6fe, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 914841089}
   m_SourcePrefab: {fileID: 100100000, guid: 7a5123ffade9faa43a9689d868f1e6fe, type: 3}
 --- !u!1 &2102453270
 GameObject:

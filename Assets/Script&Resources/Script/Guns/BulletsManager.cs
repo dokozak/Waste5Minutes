@@ -7,25 +7,20 @@ public class BulletsManager : MonoBehaviour
     public int bulletsIn;
     public int bulletsMax;
     public int bulletsHave;
-    public Animator animator;
+    private Animator animator;
 
     public static bool isReload = false;
     private float timeRecharge = 1.75f;
     
     private void Start()
     {
+        animator = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
        isReload = false;
-       bulletsIn = bulletsMax;
     }
 
-    private void Update()
+    public void reload()
     {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            OnReload();
-        }
-
-           
+        OnReload();
     }
 
     private IEnumerator rechargeAnimation()
@@ -80,7 +75,10 @@ public class BulletsManager : MonoBehaviour
         return false;
       
     }
-
+    public string getStringBullet()
+    {
+        return bulletsIn + "/" + bulletsMax + " " + bulletsHave;
+    }
 
 
 }

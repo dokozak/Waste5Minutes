@@ -25,28 +25,19 @@ public class Shooting : MonoBehaviour
         bulletsManager = GetComponent<BulletsManager>();
     }
 
-    void Update()
+    public void shooting()
     {
-        if (BulletsManager.isReload)
-            return;
-        
-        if(isAutomatic)
+        if (isAutomatic)
         {
-            if (Input.GetKey(KeyCode.Mouse0)) {
-               shooting(createRayCast());
-            }
+
+                shooting(createRayCast());
+
         }
         else
         {
-            if (Input.GetKeyDown(KeyCode.Mouse0))
-            {
                 shooting(createRayCast());
-            }
         }
-        
-       
     }
-
 
     private GameObject createRayCast()
     {

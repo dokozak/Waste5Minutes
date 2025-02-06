@@ -18,8 +18,8 @@ public class GenerateItem : MonoBehaviour
     private const int desertEagleProbability = 35;
     private const int subMachineGunProbability = 50;
     private const int francProbability = 75;
-    private const int rifleProbability = 99;
-    private const int knifeProbability = 100;
+    private const int rifleProbability = 101;
+    private const int knifeProbability = 102;
 
     void Start()
     {

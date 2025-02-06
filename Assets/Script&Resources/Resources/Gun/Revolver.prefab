@@ -11,11 +11,10 @@ GameObject:
   - component: {fileID: 1452412112952947374}
   - component: {fileID: 7923480223983996268}
   - component: {fileID: 6022091594253259064}
-  - component: {fileID: 5420193073307192711}
   - component: {fileID: 4176621935717096594}
-  - component: {fileID: 2239131171773490623}
   - component: {fileID: -9216459862266806582}
-  m_Layer: 0
+  - component: {fileID: 5420193073307192711}
+  m_Layer: 6
   m_Name: Revolver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,22 +94,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &5420193073307192711
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 35516703931396776}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b1508598561fbf46bb49da90c5cae5a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletsIn: 30
-  bulletsMax: 30
-  bulletsHave: 200
-  animator: {fileID: 0}
 --- !u!114 &4176621935717096594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,31 +110,10 @@ MonoBehaviour:
   laserDistance: 10
   couldDown: 0.07
   isAutomatic: 1
+  damage: 0
   layerMask:
     serializedVersion: 2
     m_Bits: 1
---- !u!195 &2239131171773490623
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 35516703931396776}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.00001
-  m_Speed: 0
-  m_Acceleration: 0
-  avoidancePriority: 50
-  m_AngularSpeed: 0
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 0
-  m_AutoRepath: 1
-  m_Height: 0.00001
-  m_BaseOffset: 0.075195745
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 0
 --- !u!114 &-9216459862266806582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,6 +129,21 @@ MonoBehaviour:
   typeOfGun: 0
   nameOfGun: 
   isFirstInventory: 0
+--- !u!114 &5420193073307192711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 35516703931396776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b1508598561fbf46bb49da90c5cae5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletsIn: 30
+  bulletsMax: 30
+  bulletsHave: 90
 --- !u!1 &98236512730131042
 GameObject:
   m_ObjectHideFlags: 0
@@ -179,7 +156,7 @@ GameObject:
   - component: {fileID: 8443371264198264339}
   - component: {fileID: 3005123413318175349}
   - component: {fileID: 522327584466212609}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bullet5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -288,7 +265,7 @@ GameObject:
   - component: {fileID: 2885359820027810060}
   - component: {fileID: 4874282408293652023}
   - component: {fileID: 533838717107489708}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bullet2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -397,7 +374,7 @@ GameObject:
   - component: {fileID: 5149583311155593717}
   - component: {fileID: 5965371150464218125}
   - component: {fileID: 7546901260823127165}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Case2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -506,7 +483,7 @@ GameObject:
   - component: {fileID: 9154456903953396043}
   - component: {fileID: 3342806637551938149}
   - component: {fileID: 3343063081525663559}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -615,7 +592,7 @@ GameObject:
   - component: {fileID: 6526986312500930728}
   - component: {fileID: 7909605778006569605}
   - component: {fileID: 2991714311532226784}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bullet4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -724,7 +701,7 @@ GameObject:
   - component: {fileID: 484186335654992743}
   - component: {fileID: 9200376721914591786}
   - component: {fileID: 4784310449636194633}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Case4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -833,7 +810,7 @@ GameObject:
   - component: {fileID: 206722128207678057}
   - component: {fileID: 5086766532790948859}
   - component: {fileID: 221566996496724811}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -954,7 +931,7 @@ GameObject:
   - component: {fileID: 6128434117945247480}
   - component: {fileID: 1194169329800878842}
   - component: {fileID: 134370056837251871}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1063,7 +1040,7 @@ GameObject:
   - component: {fileID: 111126140982297480}
   - component: {fileID: 6798731734809519727}
   - component: {fileID: 1136892954919781037}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bullet6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1172,7 +1149,7 @@ GameObject:
   - component: {fileID: 1969942790232319663}
   - component: {fileID: 7328303518552771929}
   - component: {fileID: 3731690722689937144}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Case3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1281,7 +1258,7 @@ GameObject:
   - component: {fileID: 4448909496782538429}
   - component: {fileID: 8800348539298593038}
   - component: {fileID: 1762133238098941765}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hammer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1390,7 +1367,7 @@ GameObject:
   - component: {fileID: 7925527313464284494}
   - component: {fileID: 9462695301579815}
   - component: {fileID: 8385868351129597618}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ejector Rod
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1497,7 +1474,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1749785194449561456}
   - component: {fileID: 391454379970314803}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Shot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1553,7 +1530,7 @@ GameObject:
   - component: {fileID: 802695050905102356}
   - component: {fileID: 5210027843528575055}
   - component: {fileID: 6172185837381380600}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Case5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1662,7 +1639,7 @@ GameObject:
   - component: {fileID: 3345968626628922162}
   - component: {fileID: 4817323121173887233}
   - component: {fileID: 3010243634038116019}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Case6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1771,7 +1748,7 @@ GameObject:
   - component: {fileID: 4465219992150680336}
   - component: {fileID: 596977374993665525}
   - component: {fileID: 8586497736790107748}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Case
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1880,7 +1857,7 @@ GameObject:
   - component: {fileID: 6155997539541513278}
   - component: {fileID: 3376538607985762134}
   - component: {fileID: 5608057169245106888}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Release
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1989,7 +1966,7 @@ GameObject:
   - component: {fileID: 2063176525271976124}
   - component: {fileID: 6624114161987530250}
   - component: {fileID: 7733806565942932198}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bullet3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2098,7 +2075,7 @@ GameObject:
   - component: {fileID: 5287635609292601193}
   - component: {fileID: 7653633093120419473}
   - component: {fileID: 2205299768091790577}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Crane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
