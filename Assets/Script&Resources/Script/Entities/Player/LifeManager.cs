@@ -3,8 +3,8 @@ using UnityEngine.UI;
 
 public class LifeManager : MonoBehaviour
 {
-    public int lifePlayer = 2;
-    public int maxLifePlayer = 4;
+    public float lifePlayer = 2;
+    public float maxLifePlayer = 4;
     public Image progressBar;
 
     private const float MINAMOUNT = 0.004f;
