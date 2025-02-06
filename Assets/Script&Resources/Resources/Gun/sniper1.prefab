@@ -124,7 +124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletsIn: 5
   bulletsMax: 5
-  bulletsHave: 20
+  bulletsHave: 10
 --- !u!114 &2596786968062653680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,8 +139,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   recoil: 0
   laserDistance: 10
-  couldDown: 0.3
-  isAutomatic: 1
+  couldDown: 0
+  isAutomatic: 0
   damage: 1
   layerMask:
     serializedVersion: 2

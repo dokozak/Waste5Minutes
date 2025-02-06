@@ -29,12 +29,13 @@ public class Shooting : MonoBehaviour
     {
         if (isAutomatic)
         {
-
+            if(Input.GetKey(KeyCode.Mouse0))
                 shooting(createRayCast());
 
         }
         else
         {
+            if (Input.GetKeyDown(KeyCode.Mouse0))
                 shooting(createRayCast());
         }
     }

@@ -124,7 +124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletsIn: 50
   bulletsMax: 50
-  bulletsHave: 200
+  bulletsHave: 100
 --- !u!114 &4235398377318823410
 MonoBehaviour:
   m_ObjectHideFlags: 0

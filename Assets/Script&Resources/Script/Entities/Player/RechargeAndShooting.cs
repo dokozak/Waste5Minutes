@@ -14,9 +14,8 @@ public class RechargeAndShooting : MonoBehaviour
     {
         if(!BulletsManager.isReload)
         
-        if (Input.GetKeyDown(KeyCode.Mouse0)) {
+  
         inventory.getActuallyWeapon().GetComponent<Shooting>().shooting(); 
-        }
 
         if (Input.GetKeyDown(KeyCode.R))
         {
