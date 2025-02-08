@@ -12,16 +12,11 @@ public class HandMovement : MonoBehaviour
     private Vector3 defaultPosition = new Vector3(0,0,0);
 
 
-    private void Start()
-    {
-
-    }
-
-
     private void Update()
     {
         if (BulletsManager.isReload)
         {
+            
 
             hand.transform.localRotation = Quaternion.Euler(defaultPosition);
             return;
