@@ -4,12 +4,10 @@ public class ProgressBarScript : MonoBehaviour
 {
     public GameObject progressBar;
 
-    private GameObject[] progressBarItem;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        progressBarItem = DisableProgressBar.progressBar;
-        if (progressBarItem[0].activeSelf)
+       if (DisableProgressBar.progressBar[0].activeSelf)
         {
             Destroy(gameObject);
         }
@@ -22,7 +20,7 @@ public class ProgressBarScript : MonoBehaviour
 
     private void Update()
     {
-        if (progressBarItem[0].activeSelf)
+        if (DisableProgressBar.progressBar[0].activeSelf)
         {
             Destroy(gameObject);
         }
@@ -31,9 +29,9 @@ public class ProgressBarScript : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            for (int i = 0; i < progressBarItem.Length; i++)
+            for (int i = 0; i < DisableProgressBar.progressBar.Length; i++)
             {
-                progressBarItem[i].SetActive(true);
+                DisableProgressBar.progressBar[i].SetActive(true);
             }
             Destroy(gameObject);
         }

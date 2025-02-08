@@ -53,6 +53,10 @@ PrefabInstance:
       value: Warrok W Kurniawan
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3b4e944aa9d25ac4886e636a8835aa99, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3b4e944aa9d25ac4886e636a8835aa99, type: 3}
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
