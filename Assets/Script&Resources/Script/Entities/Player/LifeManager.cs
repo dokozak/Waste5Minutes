@@ -17,13 +17,4 @@ public class LifeManager : MonoBehaviour
         progressBar.fillAmount = amount;
     }
 
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("EnemyShot")){
-            lifePlayer -= 1;
-        }
-        
-
-    }
 }

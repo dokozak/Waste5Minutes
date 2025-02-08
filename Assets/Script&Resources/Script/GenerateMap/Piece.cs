@@ -12,22 +12,22 @@ public class Piece : MonoBehaviour
 
     public void CheckWalls()
     {
-        if (Physics.Raycast(transform.position, -transform.right, 6))
+        if (Physics.Raycast(transform.position, -transform.right, 6, LayerMask.GetMask("Default")))
         {
             Debug.DrawRay(transform.position, -transform.right * 6, Color.red, 1.0f); // Draws the ray
             Destroy(transform.GetChild(3).gameObject);
         }
-        if (Physics.Raycast(transform.position, transform.right, 6))
+        if (Physics.Raycast(transform.position, transform.right, 6, LayerMask.GetMask("Default")))
         {
             Debug.DrawRay(transform.position, transform.right * 6, Color.green, 1.0f); // Draws the ray
             Destroy(transform.GetChild(2).gameObject);
         }
-        if (Physics.Raycast(transform.position, -transform.forward,6))
+        if (Physics.Raycast(transform.position, -transform.forward,6, LayerMask.GetMask("Default")))
         {
             Debug.DrawRay(transform.position, -transform.forward * 6, Color.blue, 1.0f); // Draws the ray
             Destroy(transform.GetChild(1).gameObject);
         }
-        if (Physics.Raycast(transform.position, transform.forward, 6))
+        if (Physics.Raycast(transform.position, transform.forward, 6, LayerMask.GetMask("Default")))
         {
             Debug.DrawRay(transform.position, transform.forward * 6, Color.yellow, 1.0f); // Draws the ray
             Destroy(transform.GetChild(0).gameObject);

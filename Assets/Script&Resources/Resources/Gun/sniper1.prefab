@@ -122,9 +122,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b1508598561fbf46bb49da90c5cae5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletsIn: 5
-  bulletsMax: 5
-  bulletsHave: 10
+  bulletsIn: 1
+  bulletsMax: 1
+  bulletsHave: 20
 --- !u!114 &2596786968062653680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,10 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   recoil: 0
-  laserDistance: 10
+  laserDistance: 999
   couldDown: 0
   isAutomatic: 0
-  damage: 1
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 0
+  damage: 9999

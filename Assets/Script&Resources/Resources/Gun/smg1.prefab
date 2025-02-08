@@ -138,10 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   recoil: 0
-  laserDistance: 10
-  couldDown: 0.3
+  laserDistance: 20
+  couldDown: 0.1
   isAutomatic: 1
-  damage: 1
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 0
+  damage: 10

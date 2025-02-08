@@ -10,7 +10,6 @@ public class Shooting : MonoBehaviour
     public float couldDown = 0.3f;
     public bool isAutomatic = true;
     public int damage = 1;
-    public LayerMask layerMask;
 
     
     private bool isShooting = true;
@@ -48,8 +47,10 @@ public class Shooting : MonoBehaviour
         Ray ray = mainCamera.ScreenPointToRay(mousePosition);
 
 
-        if (Physics.Raycast(ray, out RaycastHit hit, laserDistance, layerMask))
+        
+        if (Physics.Raycast(ray, out RaycastHit hit, laserDistance))
         {
+
             return hit.collider.gameObject;
 
         }

@@ -26,7 +26,7 @@ public class NPCRandomMovement : MonoBehaviour
     void Update()
     {
 
-        #region Random Patroll 
+
         if (Vector3.Distance(transform.position, destination) < 1f)
         {
             destination = RandomDestination();
@@ -35,8 +35,6 @@ public class NPCRandomMovement : MonoBehaviour
                 transform.LookAt(destination);
         }
 
-
-        #endregion
 
 
     }

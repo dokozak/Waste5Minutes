@@ -110,10 +110,7 @@ MonoBehaviour:
   laserDistance: 10
   couldDown: 0
   isAutomatic: 0
-  damage: 0
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 1
+  damage: 34
 --- !u!114 &-9216459862266806582
 MonoBehaviour:
   m_ObjectHideFlags: 0
