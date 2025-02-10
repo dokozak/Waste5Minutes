@@ -26,8 +26,8 @@ public class GenerateMap : MonoBehaviour
 
     private const int plataformFinal = 7;
 
-    private const int probabilityOfNormal1x1 = 39;
-    private const int probabilityOfWithItem1x1 = 40;
+    private const int probabilityOfNormal1x1 = 80;
+    private const int probabilityOfWithItem1x1 = 81;
     private const int probabilityOfWithEnemies1x1 = 95;
     private const int probabilityOfWithItemAndEnemies1x3 = 101;
     private const int probabilityOfNormal5x5 = 50;
@@ -58,7 +58,7 @@ public class GenerateMap : MonoBehaviour
         for (int i = 0; i < 4; i++)
         {
             firstPosition += movement;
-            listOfPlataform.Add(Instantiate(getRandom1xXPlataform(),firstPosition, Quaternion.identity, father.transform));
+            listOfPlataform.Add(Instantiate(plataform[plataformNormal1x1], firstPosition, Quaternion.identity, father.transform));
         }
         firstPosition += movement * 4;
         GameObject lastPlataform = Instantiate(plataform[plataformNormal5x5], firstPosition, Quaternion.identity, father.transform);

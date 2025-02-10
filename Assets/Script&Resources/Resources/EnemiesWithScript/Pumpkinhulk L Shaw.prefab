@@ -85,7 +85,7 @@ PrefabInstance:
       addedObject: {fileID: 1098605801160289685}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 69615ade191f7a245bcf6ae23564b716, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 5531819631162320109}
+      addedObject: {fileID: 4741615958867799060}
   m_SourcePrefab: {fileID: 100100000, guid: 69615ade191f7a245bcf6ae23564b716, type: 3}
 --- !u!1 &5865635696000541595 stripped
 GameObject:
@@ -103,7 +103,7 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 20
-  m_Acceleration: 8
+  m_Acceleration: 24
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0
@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bde5c699d574b7a4187db2b372cdc6ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeEnemies: 50
+  lifeEnemies: 80
 --- !u!114 &4245698003324882264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,7 +139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 658dbc986c8fa194595926a856a0c90e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
+  damage: 50
 --- !u!65 &5024017343904026599
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -169,7 +169,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5865635696000541595}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 100
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -188,7 +188,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!114 &5531819631162320109
+--- !u!114 &4741615958867799060
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -197,7 +197,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 5865635696000541595}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 088034ebec95bd348a90b9db2445ad87, type: 3}
+  m_Script: {fileID: 11500000, guid: 37c434131d9de9040a65c0565ff4dc9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}

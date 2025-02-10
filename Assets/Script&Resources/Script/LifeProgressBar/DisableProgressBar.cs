@@ -7,9 +7,5 @@ public class DisableProgressBar : MonoBehaviour
     void Awake()
     {
         progressBar = GameObject.FindGameObjectsWithTag("ProgressBarItem");
-
-        for (int i = 0; i < progressBar.Length; i++) { 
-        progressBar[i].SetActive(false);
-        }
     }
 }

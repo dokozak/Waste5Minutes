@@ -290,7 +290,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bde5c699d574b7a4187db2b372cdc6ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeEnemies: 100
+  lifeEnemies: 300
 --- !u!114 &4557222710282753150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -303,7 +303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 658dbc986c8fa194595926a856a0c90e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 20
 --- !u!65 &4468802019259904002
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -333,7 +333,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1134792191446746816}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 100
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}

@@ -139,6 +139,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   recoil: 0
   laserDistance: 20
-  couldDown: 0.1
+  couldDown: 0.05
   isAutomatic: 1
-  damage: 10
+  damage: 20

@@ -124,7 +124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletsIn: 30
   bulletsMax: 30
-  bulletsHave: 30
+  bulletsHave: 90
 --- !u!114 &-5652657904644876928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,6 +139,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   recoil: 0
   laserDistance: 10
-  couldDown: 0.3
+  couldDown: 0.1
   isAutomatic: 1
-  damage: 25
+  damage: 40
