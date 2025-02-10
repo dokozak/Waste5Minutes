@@ -7,7 +7,6 @@ public class CreateEnemies : MonoBehaviour
 
     public Transform[] positions;
 
-    public static ArrayList enemies = new ArrayList();
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -15,7 +14,7 @@ public class CreateEnemies : MonoBehaviour
 
         for (int i = 0; i < positions.Length; i++)
         {
-            enemies.Add(Instantiate(gameObject[randomEnemies], positions[i].position, Quaternion.identity));
+            Instantiate(gameObject[randomEnemies], positions[i].position, Quaternion.identity, positions[i]);
         }
 
     }

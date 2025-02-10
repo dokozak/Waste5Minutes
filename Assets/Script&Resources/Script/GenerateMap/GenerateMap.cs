@@ -65,17 +65,18 @@ public class GenerateMap : MonoBehaviour
         StartCoroutine(continueMaps(lastPlataform, firstPosition, movement));
     }
 
-    //REcojer un objeto de tipo suelo y despues comprobar si ese suelo ha sido tocado,
+ 
     IEnumerator continueMaps(GameObject map, Vector3 midPosition, Vector3 movement)
     {
         yield return new WaitForSeconds(waitTime * 5);
         StartCoroutine(createMeshData());
         AddLight.Add();
         while (!isContinue) yield return new WaitForSeconds(waitTime);
-        if (map.GetComponent<MapCollision>().isPlayerCollision) 
+        if (map.transform.GetChild(0).GetComponent<MapCollision>().isPlayerCollision) 
         {
             yield return new WaitForSeconds(waitTime * 2);
-            deleteList();
+            StartCoroutine(deleteList());
+            yield return new WaitForSeconds(waitTime);
             isContinue = false;
             listOfPlataform.Add(map);
             StartCoroutine(createMap(midPosition + movement * 3, movement));
@@ -92,7 +93,7 @@ public class GenerateMap : MonoBehaviour
            
             StartCoroutine(createMap(midPosition + movement * 3, movement));
             yield return new WaitForSeconds(waitTime);
-            map.GetComponent<BigPieceScript>().CheckWalls();
+            map.transform.GetChild(0).GetComponent<BigPieceScript>().CheckWalls();
         }
         else
         {
@@ -165,13 +166,16 @@ public class GenerateMap : MonoBehaviour
     
 
 
-    private void deleteList()
+    private IEnumerator deleteList()
     {
-        while (listOfPlataform.Count != 0)
+        ArrayList list = listOfPlataform;
+        listOfPlataform = new ArrayList();
+        while (list.Count != 0)
         {
-            Destroy((GameObject)listOfPlataform[0]);
-            listOfPlataform.RemoveAt(0);
+            Destroy((GameObject)list[0]);
+            list.RemoveAt(0);
         }
+        yield return null;
     }
 
     private GameObject getRandom1xXPlataform()
