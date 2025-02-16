@@ -6,8 +6,26 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Script&Resources/Scenes/StartMenu.unity
+    guid: 04b11f777c5604145b5d144eb2ccf5d4
+  - enabled: 1
     path: Assets/Script&Resources/Scenes/GameScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Script&Resources/Scenes/IntroductionScene.unity
+    guid: f71377180196fc246ad924bac9114904
+  - enabled: 1
+    path: Assets/Script&Resources/Scenes/GunsScene.unity
+    guid: e91220f4ed1ec2b49a27f4775f3c20b8
+  - enabled: 1
+    path: Assets/Script&Resources/Scenes/GameHotKaysScene.unity
+    guid: b014b20315b9c104fbd7c211297ef5e5
+  - enabled: 1
+    path: Assets/Script&Resources/Scenes/EnemiesScene.unity
+    guid: 056235088e2ea9d42a96af8947d37ff1
+  - enabled: 1
+    path: Assets/Script&Resources/Scenes/WinScene.unity
+    guid: e3dcab2984e6bc248ac4b425c78746be
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

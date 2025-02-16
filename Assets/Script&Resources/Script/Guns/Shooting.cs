@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class Shooting : MonoBehaviour
 {
@@ -16,10 +17,12 @@ public class Shooting : MonoBehaviour
     private Camera mainCamera;
     private BulletsManager bulletsManager;
 
-  
 
+    private AudioSource audio;
     void Start()
     {
+
+        audio = GetComponent<AudioSource>();
         mainCamera = Camera.main;
         bulletsManager = GetComponent<BulletsManager>();
     }
@@ -62,13 +65,14 @@ public class Shooting : MonoBehaviour
         if (!isShooting || !bulletsManager.isShooting())
             return;
         StartCoroutine(waitTime());
-
+        audio.PlayOneShot(audio.clip);
         if (gameObject == null)
             return;
 
         if (gameObject.CompareTag("Enemy"))
         {
-            gameObject.GetComponent<LifeEnemies>().lifeEnemies -= damage;
+            
+            gameObject.GetComponent<LifeEnemies>().loseLife(damage);
 
         }
     }
